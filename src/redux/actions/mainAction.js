@@ -1,0 +1,17 @@
+import { message } from 'antd';
+import axios from 'axios';
+
+export function getPriority() {
+  return {
+    type: 'GET_PRIORITY',
+    payload: axios('http://localhost:4000/getPriority')
+      .then((response) => {
+        const { resultSet } = response.data;
+        return resultSet;
+      })
+      .catch(() => {
+        message.error('Network Error');
+        return [];
+      })
+  };
+}
