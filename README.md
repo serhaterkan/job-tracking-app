@@ -34,8 +34,7 @@ $  npm run test
 
 You can test the application with the link below.
 
-[demo.digitool.agency](https://demo.digitool.agency/){:target="_blank"}
-
+[demo.digitool.agency](https://demo.digitool.agency/)
 ## Job Tracking Node.js Api
 
 Clone the [repository](https://github.com/serhaterkan/job-tracking-api) to your local machine.
