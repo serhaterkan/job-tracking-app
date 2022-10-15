@@ -4,7 +4,7 @@ import axios from 'axios';
 export function getPriority() {
   return {
     type: 'GET_PRIORITY',
-    payload: axios('http://localhost:4000/getPriority')
+    payload: axios('https://demo.digitool.agency/demoapi/getPriority')
       .then((response) => {
         const { resultSet } = response.data;
         return resultSet;
