@@ -15,6 +15,10 @@ import { getPriority } from '../../redux/actions/mainAction';
 const Dashboard = (props) => {
   const { getOnPriority } = props;
   const [cookies, setCookie] = useCookies(['data']);
+
+  const [expires] = useState({
+    maxAge: 31536000
+  });
   const [jobList, setJobList] = useState(cookies.data);
 
   const { width } = useViewport();
@@ -25,7 +29,7 @@ const Dashboard = (props) => {
   // Delete Job
   const onDelete = (values) => {
     const filterData = cookies.data.filter((e) => e.key !== values.key);
-    setCookie('data', filterData);
+    setCookie('data', filterData, expires);
     setJobList(filterData);
   };
 
@@ -39,7 +43,7 @@ const Dashboard = (props) => {
         jobPriority: values.jobPriority.substring(1),
         jobPriorityId: values.jobPriority.substring(0, 1)
       };
-      setCookie('data', [...filterData, editData]);
+      setCookie('data', [...filterData, editData], expires);
       setJobList([...filterData, editData]);
       onCancel();
     },
@@ -54,7 +58,7 @@ const Dashboard = (props) => {
       const jobPriority = values.jobPriority.substring(1);
 
       setJobList([...cookies.data, { ...values, key, jobPriorityId, jobPriority }]);
-      setCookie('data', [...cookies.data, { ...values, key, jobPriorityId, jobPriority }]);
+      setCookie('data', [...cookies.data, { ...values, key, jobPriorityId, jobPriority }], expires);
     },
     [cookies.data]
   );
@@ -150,11 +154,12 @@ const Dashboard = (props) => {
   useEffect(() => {
     getOnPriority();
     if (!cookies.data) {
-      setCookie('data', []);
+      setCookie('data', [], expires);
     } else {
       setCookie(
         'data',
-        cookies.data.sort((a, b) => a.jobPriorityId - b.jobPriorityId)
+        cookies.data.sort((a, b) => a.jobPriorityId - b.jobPriorityId),
+        expires
       );
     }
   }, []);
