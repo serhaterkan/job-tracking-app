@@ -22,11 +22,19 @@ $ npm install
 $  npm run start
 ```
 
+## Available Scripts
+
+Launches the test runner in the interactive watch mode.
+
+```bash
+$  npm run test
+```
+
 ## Live Preview
 
 You can test the application with the link below.
 
-[demo.digitool.agency](https://demo.digitool.agency/)
+[demo.digitool.agency](https://demo.digitool.agency/{:target="_blank"})
 
 ## Job Tracking Node.js Api
 
