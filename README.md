@@ -34,7 +34,7 @@ $  npm run test
 
 You can test the application with the link below.
 
-[demo.digitool.agency](https://demo.digitool.agency/{:target="_blank"})
+[demo.digitool.agency](https://demo.digitool.agency/){:target="_blank"}
 
 ## Job Tracking Node.js Api
 
